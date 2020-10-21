@@ -1,4 +1,6 @@
 <?php
+
+//example of how to use github as remote repository 
 echo '
 <!DOCTYPE html>
 <html>
