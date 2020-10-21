@@ -1,0 +1,29 @@
+This example is susceptable to a SQL Injection.
+
+Use any UserId and for password use:
+    1' or '1' = '1
+ The result will be to print the entire login table.
+ 
+ Here's another one:
+ 
+ For UserId use jpepe'; -- some text
+     and use any password.
+     The result will be to log in jpepe.
+     
+ Never use mysqli_multi_query($con, $sql) because it will execute
+ multiple SQL statements per call. A SQL Injection for user id could be:
+ 
+     hbentley'; DROP TABLE Login; 
+
+ 
+ This example is also susceptable to HTML Injection.
+ 
+ REGISTER new user name using a tag like <hr color="red" />, watch what happens.
+ Now use SQL injection to print entire table.
+ To prevent this uncomment the test_input function.
+ 
+ Here's more HTML Injections. Try register user name:
+ 
+ <img src="images/ic_drawer.jpg" alt="text" />    or
+ 
+ <img src="javascript:alert(&quot; Malicious cookie attack &quot;);" alt="text"/>
